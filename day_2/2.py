@@ -5,7 +5,6 @@ x = 0
 y = 0
 z = 0
 
-
 for i in instructions:
     if i[0] == "f":
         x += int(i[-1])
