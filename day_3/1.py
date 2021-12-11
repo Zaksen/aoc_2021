@@ -1,26 +1,19 @@
 with open('input.txt', 'r') as f:
     numbers = [l.rstrip() for l in f.readlines()]
 
-a = 0
-b = 0
-c = 0
-d = 0
-e = 0
+length = len(numbers)
+count = [0 for i in range(len(numbers[0]))]
 
 for n in numbers:
-    a += int(n[0])
-    b += int(n[1])
-    c += int(n[2])
-    d += int(n[3])
-    e += int(n[4])
-
-def find_gamma(x):
-    if x > len(numbers)/2:
-        return 1
-    else:
-        return 0
-
-gamma = str(find_gamma(a)) + str(find_gamma(b)) + str(find_gamma(c)) + str(find_gamma(d)) + str(find_gamma(e))
+    for i in range(len(count)):
+        count[i] += int(n[i])
 
 
-print(gamma)
+def to_binary(x, length):
+    return int(x // (length  / 2))
+
+
+gamma = "".join([str(to_binary(e, length)) for e in count])
+epsilon = "".join([str(1 - to_binary(e, length)) for e in count])
+
+print(int(gamma, 2) * int(epsilon, 2))
