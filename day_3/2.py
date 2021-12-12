@@ -11,6 +11,7 @@ def filtering(nums, pos, binary):
         selector = 1 if count >= (length // 2) else 0
     else:
         selector = 0 if count >= (length // 2) else 1  
+
     return [n for n in nums if n[pos] == str(selector)]
 
 oxygen_rating = numbers[:]
