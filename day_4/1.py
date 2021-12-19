@@ -1,3 +1,7 @@
+class Grid:
+    def __init__(self, numbers):
+        self.numbers = numbers
+
 with open('input.txt', 'r') as f:
     drawn = [int(x.rstrip()) for x in f.readline().split(',')]
     cards = []
@@ -6,4 +10,8 @@ with open('input.txt', 'r') as f:
         for i in range(5):
             card.extend([int(x) for x in f.readline().strip('\n').split(' ') if x != ''])
         cards.append(card)
+
+
+
+
 
